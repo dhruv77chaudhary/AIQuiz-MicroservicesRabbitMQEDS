@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: quiz-service
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/quiz
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    function:
+      web:
+        path: "/functions"
+      definition: acknowledgeInformation
+    stream:
+      bindings:
+        quizCreatedBinding-out-0:
+          destination: quiz-created
+        acknowledgeInformation-in-0:
+          destination: acknowledge-quiz
+
+server:
+  port: 9092
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,24 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Maven
+**/target/
+
+# Java
+*.class
+
+# Logs
+*.log
+
+# Secrets / environment
+.env
+**/.env
+
+# Database data
+mongo-data/
+postgres-data/
+
+# OS
+.DS_Store
+Thumbs.db
